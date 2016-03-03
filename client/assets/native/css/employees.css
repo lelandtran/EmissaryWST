@@ -34,12 +34,12 @@
    padding: 7px;
    margin-top: 15px;
    float: right;
-   background-color: #00a651;
+   background-color: #01b2bd;
    color: white;
 }
 
 .add-button:hover{
-   background-color: #007338;
+   background-color: #049099;
    cursor: pointer;
 }
 

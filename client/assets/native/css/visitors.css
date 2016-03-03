@@ -81,6 +81,7 @@ table{
    background-color: #CCCCD4;
    cursor: pointer;
 }
+
 hr{
-   border-top: 1px solid #303641 !important;
+   border-top: 3px solid #01b2bd !important;
 }
