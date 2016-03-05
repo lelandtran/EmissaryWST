@@ -51,7 +51,7 @@ var neonLogin = neonLogin || {};
 				// Hide Errors
 				$(".form-login-error").slideUp('fast');
 
-				// We will wait till the transition ends				
+				// We will wait till the transition ends
 				setTimeout(function()
 				{
 					var random_pct = 25 + Math.round(Math.random() * 30);

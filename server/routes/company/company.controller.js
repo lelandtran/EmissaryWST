@@ -31,8 +31,6 @@ module.exports.template.create = function(req, res) {
     company.email = req.body.email;
     company.name = req.body.name;
     company.phone_number = req.body.phone_number;
-    company.expiration_date=req.body.expiration_date;
-    company.credit_card_number=req.body.credit_card_number;
     company.paid_time=new Date();
     console.log("REQUEST");
     console.log("request: " + req);
@@ -44,7 +42,7 @@ module.exports.template.create = function(req, res) {
     company.expiration_date=req.body.expiration_date;
     company.credit_card_number=req.body.credit_card_number;*/
     company.save(function(err, c) {
-        if(err){
+        if(err) {
             return res.status(400).json({error: "Could Not Save"});
         }
         return res.status(200).json(showCompanyPublicInfo(c));
@@ -92,12 +90,6 @@ module.exports.template.update = function(req, res){
         //update company's phone number
         if (req.body.phone_number !== undefined)
             c.phone_number = req.body.phone_number;
-
-        if (req.body.credit_card_number !== undefined)
-            c.credit_card_number = req.body.credit_card_number;
-
-        if (req.body.expiration_date !== undefined)
-            c.expiration_date = req.body.expiration_date;
 
         c.save(function(err) {
             if(err) {

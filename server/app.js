@@ -14,7 +14,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var socketIO = require('./socket/socket');
 //var oauthserver = require('oauth2-server');
-//var newrelic = require('newrelic');
+var newrelic = require('newrelic');
 
 
 /*
@@ -65,6 +65,7 @@ app.set('port', config.port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../dist')));
+app.set('view engine', 'html');
 
 app.use(cors());
 require('./routes')(app);

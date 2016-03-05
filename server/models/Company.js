@@ -10,8 +10,6 @@ var companySchema = mongoose.Schema({
     email: {type: String, unique: true, index: true, required: true},
     name:  {type: String, required: true },
     phone_number: { type: String, required: true },
-    credit_card_number: { type: String },//, required:true},
-    expiration_date: { type: String },//, required:true},
     paid_time: { type: Date, required: true}
 });
 

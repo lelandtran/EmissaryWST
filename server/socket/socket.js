@@ -35,7 +35,7 @@ exports.createServer = function(io_in) {
             var company_id = data.company_id;
             Company.findOne({_id: company_id}, function(err, c){
                 if(err || !c)
-                    exports.notifyError(company_id, err);
+                    return;
                 else {
                     socket.join(company_id);
                     VisitorListCtr.getCompanyVisitorList(company_id, function(err_msg, result){
@@ -54,8 +54,9 @@ exports.createServer = function(io_in) {
         socket.on(VISITOR_LIST_UPDATE, function(data) {
             var company_id = data.company_id;
             VisitorListCtr.getCompanyVisitorList(company_id, function(err_msg, result){
-                if(err_msg)
+                if(err_msg) {
                     exports.notifyError(company_id, {error: err_msg});
+                }
                 else
                     exports.notifyNewList(company_id, result);
             });
@@ -67,6 +68,7 @@ exports.createServer = function(io_in) {
 
         //requires the company_id and visitor_id to be sent
         socket.on(REMOVE_VISITOR, function(data) {
+            console.log(data.company_id);
             var company_id = data.company_id;
             var visitor_id = data.visitor_id;
             if(!company_id ||  !visitor_id) return;
@@ -81,6 +83,7 @@ exports.createServer = function(io_in) {
 
         //require the params to be set with info of the visitor
         socket.on(ADD_VISITOR, function(data) {
+            console.log(data.company_id);
             var company_id = data.company_id;
             VisitorListCtr.create(data, function(err_msg, result){
                 if(err_msg){

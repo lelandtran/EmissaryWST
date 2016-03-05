@@ -66,8 +66,6 @@ $(document).ready(function(){
     $(document).on('click','.patient-check-out',function(){
         var uniqueId = $(this).attr('value');
         var visitor = findVisitor(uniqueId);
-        if(!visitor.email) visitor.email = "N/A";
-
         var compiledTemplate = modalTemplate(visitor);
         $('.modal-dialog').html(compiledTemplate);
     });
@@ -78,6 +76,8 @@ $(document).ready(function(){
     $(document).on('click','.check-in-btn',function(){
        var id = $(this).closest('.modal-content').find('.modal-body').attr('value');
         var removeVisitor = findVisitor(id);
+        console.log(removeVisitor);
+        removeVisitor.visitor_id = removeVisitor._id;
         socket.emit(REMOVE_VISITOR, removeVisitor);
 
     });

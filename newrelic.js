@@ -8,11 +8,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['webstormtroopers'],
+  app_name: ['emissary'],
   /**
    * Your New Relic license key.
    */
-  license_key: '419102329ad921f5fa4ffb0356c6d59ef0add3e1',
+  license_key: '4b8e303bf3c6d7678e5d4331d97a2cb2b93c7360',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing

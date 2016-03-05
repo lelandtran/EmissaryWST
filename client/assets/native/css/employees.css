@@ -1,27 +1,3 @@
-.modal #employee-form{
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 15px;
-   padding-bottom: 15px;
-}
-
-.modal #employee-form > .field-wrapper{
-   width: 40%;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.modal #employee-form input.employee-fields{
-   width: 100%;
-   margin-bottom: 5px;
-   margin-top: 5px;
-
-}
-
-#employee-form input.employee-fields:focus{
-   outline: none;
-}
 
 .modal-title{
    font-size: 24px;
@@ -83,4 +59,29 @@ table{
 
 hr{
    border-top: 3px solid #01b2bd !important;
+}
+
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+   width: 100%;
+
+}
+
+.modal-body{
+   overflow: hidden;
+}
+
+.modal-body .form-horizontal .control-label {
+   text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+   margin-left: 15px;
+}
+
+.form-control{
+   margin-bottom: 4px !important;
+   margin-top: 4px !important;
+}
+.control-label{
+   margin-top: 8px !important;
 }

@@ -8,13 +8,11 @@ describe('Company Test', function() {
     var currCompany;
 
     var email = "test@test.edu";
-    var credit_card_number="1231231241251";
     var name = "test";
     var expiration_date="6/17";
     var phone_number="1234567890";
 
     var new_email = "test1@test.edu";;
-    var new_credit_card_number="12312312312";
     var new_name = "test1";
     var new_expiration_date="3/19";
     var new_phone_number="1231267890";
@@ -28,9 +26,7 @@ describe('Company Test', function() {
             .post('/api/companies')
             .send({
                 email: email,
-                credit_card_number:credit_card_number,
                 name:name,
-                expiration_date:expiration_date,
                 phone_number:phone_number
             })
             .expect(200)
@@ -50,7 +46,6 @@ describe('Company Test', function() {
             .send(
                 {
                     email: email,
-                    credit_card_number:credit_card_number,
                     name:name,
                     expiration_date:expiration_date,
                     phone_number:phone_number
@@ -102,8 +97,6 @@ describe('Company Test', function() {
                 {
                     email: new_email,
                     name: new_name,
-                    credit_card_number: new_credit_card_number,
-                    expiration_date: new_expiration_date,
                     phone_number: new_phone_number
                 }
             )
@@ -115,8 +108,6 @@ describe('Company Test', function() {
                 res.body.email.should.equal(new_email);
                 res.body.should.have.property('name');
                 res.body.name.should.equal(new_name);
-                res.body.should.not.have.property('credit_card_number');
-                res.body.should.not.have.property('expiration_date');
                 res.body.should.have.property('phone_number');
                 res.body.phone_number.should.equal(new_phone_number);
                 done();

@@ -19,7 +19,7 @@ var VALIDATE_COMPANY_ID = "validate_company_id";
 var VISITOR_LIST_UPDATE = "visitor_list_update";
 var REMOVE_VISITOR = "remove_visitor";
 var ADD_VISITOR = "add_visitor";
-var DISCONNECT = "disconnect";
+var NOTIFY_ERROR = "notify_error";
 
 
 describe("Visitor List Socket",function(){
@@ -129,8 +129,6 @@ describe("Visitor List Socket",function(){
         });
 
     });
-
-    //TODO: test wrong company_id sent
 
     it('Should add visitors to List', function(done){
         var client2 = io.connect(socketURL, options);

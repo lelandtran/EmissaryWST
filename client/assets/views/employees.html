@@ -10,7 +10,7 @@
 
 	<link rel="icon" href="images/favicon.ico">
 
-	<title>Visitors</title>
+	<title>Emissary | Employees</title>
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
@@ -113,7 +113,7 @@
 
 						<a href="#" >
 							<img src="assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
-							Super Duper Cool HardCoded Company
+							Demo Company
 						</a>
 
 					</li>
@@ -188,6 +188,96 @@
 						<td class="employee-data">barrack@usa.com</td>
 					</tr>
 
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						  aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close"
+											  data-dismiss="modal">
+										<span aria-hidden="true">&times;</span>
+										<span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">
+										Add an Employee
+									</h4>
+								</div>
+
+								<!-- Modal Body -->
+								<div class="modal-body">
+
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label class="col-sm-2 control-label"
+													 for="first-name" >First Name</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+														 id="first-name" placeholder="First"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label"
+													 for="last-name" >Last Name</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+														 id="last-name" placeholder="Last Name"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label  class="col-sm-2 control-label"
+													  for="inputEmail3">Email</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control"
+														 id="inputEmail3" placeholder="Email"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label"
+													 for="phone-number" >Phone</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+														 id="phone-number" placeholder="Phone Number"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label"
+													 for="inputPassword3" >Password</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control"
+														 id="inputPassword3" placeholder="Password"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label"
+													 for="inputPassword3" >Confirm</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control"
+														 id="inputPassword3" placeholder="Confirm Password"/>
+											</div>
+										</div>
+
+									</form>
+
+								</div>
+
+								<!-- Modal Footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+											  data-dismiss="modal">
+										Close
+									</button>
+									<button type="button" class="btn btn-primary">
+										Save
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+<!--
 					<div class="modal fade" id="myModal" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -196,16 +286,27 @@
 									<h1 class="modal-title">Add an Employee</h1>
 								</div>
 								<div class="modal-body">
-									<form id = "employee-form">
-										<div class = "field-wrapper">
-											<input class = "employee-fields" id="employee-first" type = "text" name = "first" placeholder = "First"> <br />
-											<input class = "employee-fields" id="employee-last" type = "text" name = "last" placeholder = "Last"> <br />
-											<input class = "employee-fields" id="employee-email" type = "text" name = "email" placeholder = "Email"> <br />
-											<input class = "employee-fields" id="employee-number" type = "text" name = "phoneNumber" placeholder = "Phone Number"> <br />
-											<input class = "employee-fields" id="employee-pw" type = "text" name ="password" placeholder = "Password"> <br />
-											<input class = "employee-fields" id="employee-confirm-pw" type = "text" name ="password" placeholder = "Confirm Password"> <br />
-										</div>
+									<form class = "check-in">
+										<h1>Check in</h1>
+										<input class = "visitor-fields" id="visitor-first" type = "text" name = "first" placeholder = "First"> <br>
+										<input class = "visitor-fields" id="visitor-last" type = "text" name = "last" placeholder = "Last"> <br>
+										<input class = "visitor-fields" id="visitor-number" type = "text" name = "phoneNumber" placeholder = "Phone Number">
+										<br>
+										<input class = "submit-check-in" type="submit" value="Submit">
 									</form>
+
+
+									<form class = "employee-form">
+
+										<input class = "employee-fields" id="employee-first" type = "text" name = "first" placeholder = "First"> <br />
+										<input class = "employee-fields" id="employee-last" type = "text" name = "last" placeholder = "Last"> <br />
+										<input class = "employee-fields" id="employee-email" type = "text" name = "email" placeholder = "Email"> <br />
+										<input class = "employee-fields" id="employee-number" type = "text" name = "phoneNumber" placeholder = "Phone Number"> <br />
+										<input class = "employee-fields" id="employee-pw" type = "text" name ="password" placeholder = "Password"> <br />
+										<input class = "employee-fields" id="employee-confirm-pw" type = "text" name ="password" placeholder = "Confirm Password"> <br />
+
+									</form>
+
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="check-in-btn btn btn-default" data-dismiss="modal">Add Employee</button>
@@ -214,6 +315,7 @@
 							</div>
 						</div>
 					</div>
+					-->
 
 					</tbody>
 				</table>
