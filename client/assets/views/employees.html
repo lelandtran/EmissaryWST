@@ -140,7 +140,7 @@
 
 		<hr />
 		<div class="employee-container">
-			<div id="employee-list">
+			<div>
 				<div class = "patient-table-header">
 					<!-- <h3>Click on a visitor for check-out</h3>-->
 					<input class="form-control" placeholder="Search ..." type="text"/>
@@ -156,194 +156,114 @@
 					</tr>
 					</thead>
 
-					<tbody id= "visitor-list">
-					<tr class="employee-row">
-						<td class="employee-data">Daniel</td>
-						<td class="employe-data">Kong</td>
-						<td class="employe-data">(310) 985-1473</td>
-						<td class="employee-data">dakong94@gmail.com</td>
-					</tr>
-					<tr class="employee-row">
-						<td class="employee-data">Bob</td>
-						<td class="employe-data">Smith</td>
-						<td class="employe-data">(510) 123-1234</td>
-						<td class="employee-data">bob.smith@gmail.com</td>
-					</tr>
-					<tr class="employee-row">
-						<td class="employee-data">Adam</td>
-						<td class="employe-data">Chen</td>
-						<td class="employe-data">(310) 985-1473</td>
-						<td class="employee-data">achen@gmail.com</td>
-					</tr>
-					<tr class="employee-row">
-						<td class="employee-data">Donald</td>
-						<td class="employe-data">Trump</td>
-						<td class="employe-data">(310) 123-3431</td>
-						<td class="employee-data">trump@republican.com</td>
-					</tr>
-					<tr class="employee-row">
-						<td class="employee-data">Barrack</td>
-						<td class="employe-data">Obama</td>
-						<td class="employe-data">(123) 123-2234</td>
-						<td class="employee-data">barrack@usa.com</td>
-					</tr>
+					<tbody id= "employee-list">
+						<!-- HANDLE BAR TEMPLATES -->
+					
 
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-						  aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<!-- Modal Header -->
-								<div class="modal-header">
-									<button type="button" class="close"
-											  data-dismiss="modal">
-										<span aria-hidden="true">&times;</span>
-										<span class="sr-only">Close</span>
-									</button>
-									<h4 class="modal-title" id="myModalLabel">
-										Add an Employee
-									</h4>
-								</div>
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+							  aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal Header -->
+									<div class="modal-header">
+										<button type="button" class="close"
+												  data-dismiss="modal">
+											<span aria-hidden="true">&times;</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">
+											Add an Employee
+										</h4>
+									</div>
 
-								<!-- Modal Body -->
-								<div class="modal-body">
+									<!-- Modal Body -->
+									<div class="modal-body">
 
-									<form class="form-horizontal" role="form">
-										<div class="form-group">
-											<label class="col-sm-2 control-label"
-													 for="first-name" >First Name</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-														 id="first-name" placeholder="First"/>
+										<form class="form-horizontal" role="form" id="employee-form">
+											<div class="form-group">
+												<label class="col-sm-2 control-label"
+														 for="first-name" >First Name</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control"
+															 id="employee-first" placeholder="First"/>
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label"
-													 for="last-name" >Last Name</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-														 id="last-name" placeholder="Last Name"/>
+											<div class="form-group">
+												<label class="col-sm-2 control-label"
+														 for="last-name" >Last Name</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control"
+															 id="employee-last" placeholder="Last Name"/>
+												</div>
 											</div>
-										</div>
 
-										<div class="form-group">
-											<label  class="col-sm-2 control-label"
-													  for="inputEmail3">Email</label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control"
-														 id="inputEmail3" placeholder="Email"/>
+											<div class="form-group">
+												<label  class="col-sm-2 control-label"
+														  for="inputEmail3">Email</label>
+												<div class="col-sm-10">
+													<input type="email" class="form-control"
+															 id="employee-email" placeholder="Email"/>
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label"
-													 for="phone-number" >Phone</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-														 id="phone-number" placeholder="Phone Number"/>
+											<div class="form-group">
+												<label class="col-sm-2 control-label"
+														 for="phone-number" >Phone</label>
+												<div class="col-sm-10">
+													<input type="text" class="form-control"
+															 id="employee-number" placeholder="Phone Number"/>
+												</div>
 											</div>
-										</div>
 
-										<div class="form-group">
-											<label class="col-sm-2 control-label"
-													 for="inputPassword3" >Password</label>
-											<div class="col-sm-10">
-												<input type="password" class="form-control"
-														 id="inputPassword3" placeholder="Password"/>
+											<div class="form-group">
+												<label class="col-sm-2 control-label"
+														 for="inputPassword3" >Password</label>
+												<div class="col-sm-10">
+													<input type="password" class="form-control"
+															 id="employee-pw" placeholder="Password"/>
+												</div>
 											</div>
-										</div>
 
-										<div class="form-group">
-											<label class="col-sm-2 control-label"
-													 for="inputPassword3" >Confirm</label>
-											<div class="col-sm-10">
-												<input type="password" class="form-control"
-														 id="inputPassword3" placeholder="Confirm Password"/>
+											<div class="form-group">
+												<label class="col-sm-2 control-label"
+														 for="inputPassword3" >Confirm</label>
+												<div class="col-sm-10">
+													<input type="password" class="form-control"
+															 id="employee-confirm-pw" placeholder="Confirm Password"/>
+												</div>
 											</div>
-										</div>
 
-									</form>
+										</form>
 
-								</div>
+									</div>
 
-								<!-- Modal Footer -->
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-											  data-dismiss="modal">
-										Close
-									</button>
-									<button type="button" class="btn btn-primary">
-										Save
-									</button>
+									<!-- Modal Footer -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+												  data-dismiss="modal">
+											Close
+										</button>
+										<button type="button" class="check-in-btn btn btn-default save-btn" data-dismiss="modal">Save</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-<!--
-					<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h1 class="modal-title">Add an Employee</h1>
-								</div>
-								<div class="modal-body">
-									<form class = "check-in">
-										<h1>Check in</h1>
-										<input class = "visitor-fields" id="visitor-first" type = "text" name = "first" placeholder = "First"> <br>
-										<input class = "visitor-fields" id="visitor-last" type = "text" name = "last" placeholder = "Last"> <br>
-										<input class = "visitor-fields" id="visitor-number" type = "text" name = "phoneNumber" placeholder = "Phone Number">
-										<br>
-										<input class = "submit-check-in" type="submit" value="Submit">
-									</form>
-
-
-									<form class = "employee-form">
-
-										<input class = "employee-fields" id="employee-first" type = "text" name = "first" placeholder = "First"> <br />
-										<input class = "employee-fields" id="employee-last" type = "text" name = "last" placeholder = "Last"> <br />
-										<input class = "employee-fields" id="employee-email" type = "text" name = "email" placeholder = "Email"> <br />
-										<input class = "employee-fields" id="employee-number" type = "text" name = "phoneNumber" placeholder = "Phone Number"> <br />
-										<input class = "employee-fields" id="employee-pw" type = "text" name ="password" placeholder = "Password"> <br />
-										<input class = "employee-fields" id="employee-confirm-pw" type = "text" name ="password" placeholder = "Confirm Password"> <br />
-
-									</form>
-
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="check-in-btn btn btn-default" data-dismiss="modal">Add Employee</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					-->
 
 					</tbody>
 				</table>
 				<div class = "add-button" data-toggle="modal" data-target="#myModal">Add Employee</div>
 			</div>
 		</div>
-		<!-- HANDLE BAR TEMPLATES -->
-		<!--<script type = "text/x-handlebars-template" id = "visitor-list-template">
+
+		<script type = "text/x-handlebars-template" id = "employee-list-template">
 			{{#each []}}
-			<tr class="patient-check-out" data-toggle="modal" data-target="#myModal">
-				<td class="patient-queue-text">{{this.first_name}}</td>
-				<td class="patient-queue-text">{{this.last_name}}</td>
-				<td class="patient-queue-text">{{this.appointment}}</td>
-
-				<td class="patient-queue-text">
-					<span class="text-danger">
-						<i class="fa fa-warning"></i>
-					</span>{{this.checkin_time}}
-				</td>
-
+			<tr class="employee-row" data-toggle="modal" data-target="#myModal">
+				<td class="employee-data">{{this.first_name}}</td>
+				<td class="employee-data">{{this.last_name}}</td>
+				<td class="employee-data">{{this.phone_number}}</td>
+				<td class="employee-data">{{this.email}}</td>
 			</tr>
 			{{/each}}
-		</script>-->
-
-		<script type = "text/x-handlebars-template" id="visitor-info-template">
-
 		</script>
-
 	</div>
 </div>
 
@@ -372,6 +292,9 @@
 <script src="assets/js/toastr.js"></script>
 <script src="assets/js/fullcalendar/fullcalendar.min.js"></script>
 <script src="assets/js/neon-chat.js"></script>
+
+<script type = "text/javascript" src= "assets/js/handlebars-v4.0.5.js"></script>
+<script type ="text/javascript" src = "assets/native/js/employees.js"> </script>
 
 
 <!-- JavaScripts initializations and stuff -->
