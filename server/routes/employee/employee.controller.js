@@ -15,12 +15,14 @@ exports.login = function(req, res) {
         }
         if(!e.validPassword(req.body.password))
           return res.status(400).send({error: "Incorrect Credentials"});
-        return res.status(200).json(e);
+        var employee_json=e.toJSON();
+        delete employee_json.password;
+        return res.status(200).json(employee_json);
     });
 };
 
 exports.getAllEmployees = function(req, res) {
-  Employee.find({company_id : req.params.id}, function(err, result) {
+  Employee.find({company_id : req.params.id}, { password: 0}, function(err, result) {
     if(err){
       return res.status(400).send({error: "Can not Find"});
     }
@@ -29,18 +31,22 @@ exports.getAllEmployees = function(req, res) {
 };
 
 exports.getById = function(req, res) {
-   Employee.findById(req.params.id, function(err, employee) {
+   Employee.findById(req.params.id, { password: 0}, function(err, employee) {
       if(err) {
-        return res.status(400).json({error: "Can not Find"});
+          return res.status(400).json({error: "Can not Find"});
       } else {
-        return res.status(200).json(employee);
+          console.log(employee)
+          return res.status(200).json(employee);
       }
     });
 };
 
 exports.insert = function(req, res) {
     var employee = new Employee();
-    employee.name = req.body.name;
+
+    /* required info */
+    employee.first_name = req.body.first_name;
+    employee.last_name = req.body.last_name;
     employee.email = req.body.email,
     employee.phone_number  = req.body.phone_number,
     employee.company_id = req.body.company_id,
@@ -48,29 +54,36 @@ exports.insert = function(req, res) {
     employee.role =  req.body.role
 
     employee.save(function(err, e) {
-    if(err) {
-      return res.status(400).json({error: "Can not Save"});
-    }
-    return res.status(200).send(e);
-  });
+        if(err) {
+            return res.status(400).json({error: "Can not Save"});
+        }
+        var employee_json=e.toJSON();
+        delete employee_json.password;
+        return res.status(200).json(employee_json);
+    });
 };
+
 
 exports.update = function(req, res) {
     Employee.findById(req.params.id, function (err, employee) {
         if(err)
             return res.status(400).json({error: "Can not Update"});
  
-        employee.name = req.body.name || employee.name;
+        employee.first_name = req.body.first_name || employee.first_name;
+        employee.last_name = req.body.last_name || employee.last_name;
         employee.email = req.body.email || employee.email;
         employee.phone_number = req.body.phone_number || employee.phone_number;
-        employee.password = req.body.password || employee.password;
+        employee.password = employee.generateHash(req.body.password) || employee.password;
         employee.role = req.body.role || employee.role;
 
         employee.save(function(err) {
-        if(err)
-          return res.status(400).json({error: "Can not Save"});
-        return res.status(200).send(employee);
-      });
+            console.log(err);
+            if(err)
+                return res.status(400).json({error: "Can not Save"});
+            var employee_json=employee.toJSON();
+            delete employee_json.password;
+            return res.status(200).send(employee_json);
+        });
    });
 };
 
@@ -80,7 +93,9 @@ exports.delete = function(req, res) {
       if(err) {
         res.status(400).json({error: "Can not Find"});
       } else {
-        return res.status(200).send(employee);
+          var employee_json=employee.toJSON();
+          delete employee_json.password;
+          return res.status(200).send(employee_json);
       }
     });
   });

@@ -36,7 +36,8 @@ describe("Employee", function() {
                         .query({email: credentials.email, token: credentials.token})
                         .send({
                             company_id: credentials.admin._id,
-                            name: "John",
+                            first_name: "John",
+                            last_name: "Smith",
                             email: "jt@tomcruise.com",
                             phone_number: "123456789",
                             role: "c_admin",
@@ -45,12 +46,9 @@ describe("Employee", function() {
                         .end(function(err, res){
                             if(err)
                                 throw(err);
-                            //console.log(err);
-                            //console.log(res);
-                            //res.body.should.have.property('_admin_id').and.be.equal(''+credentials.admin._id);
-                            res.body.should.have.property('name').and.be.equal("John");
+                            res.body.should.have.property('first_name').and.be.equal("John");
                             res.body.should.have.property('email').and.be.equal("jt@tomcruise.com");
-
+                            res.body.should.not.have.property('password');
                             returnedId = res.body._id;
                             done();
                         });
@@ -69,6 +67,7 @@ describe("Employee", function() {
                             .end(function(err, res){
                                 if(err) throw (err);
                                 res.body.should.have.property('_id');
+                                res.body.should.not.have.property('password');
                                 done();
                             });
                 });
@@ -84,6 +83,42 @@ describe("Employee", function() {
                         .end(function(err, res){
                             if(err) throw (err);
                             res.body.should.have.property('error');
+
+                            done();
+                        });
+                });
+                it('Should update the employee data', function(done){
+                    request(url)
+                        .put('/api/employees/' + returnedId)
+                        .query({email: credentials.email, token: credentials.token})
+                        .send({
+                            _admin_id: credentials.admin._id,
+                            password: "new_password"
+                        })
+                        .end(function(err, res){
+                            if(err)
+                                throw(err);
+
+                            res.body.should.have.property('email');
+                            res.body.should.have.property('phone_number');
+                            res.body.should.not.have.property('password');
+                            done();
+                        });
+                });
+                it('Should login with new password', function(done){
+                    request(url)
+                        .post('/api/employees/login')
+                        .send(
+                            {
+                                email:"jt@tomcruise.com",
+                                password: "new_password"
+                            }
+                        )
+                        .end(function(err, res){
+                            if(err) throw (err);
+                            res.body.should.have.property('email');
+                            res.body.should.have.property('phone_number');
+                            res.body.should.not.have.property('password');
                             done();
                         });
                 });
@@ -98,7 +133,7 @@ describe("Employee", function() {
                         .send({
                             _admin_id: credentials.admin._id,
                             email: "updated_email@tomcruise.com",
-                            phone_number: "987654321",
+                            phone_number: "987654321"
                         })
                         .end(function(err, res){
                             if(err)
@@ -106,6 +141,7 @@ describe("Employee", function() {
 
                             res.body.should.have.property('email').and.be.equal("updated_email@tomcruise.com");
                             res.body.should.have.property('phone_number').and.be.equal("987654321");
+                            res.body.should.not.have.property('password');
                             done();
                         });
                 });
@@ -128,9 +164,9 @@ describe("Employee", function() {
                             res.body.should.not.be.empty();
                             //res.body.should.exist;
                             should.exist(res.body);
-                            res.body.should.have.length.of.at.least(1);
+                            res.body.should.have.length.of(1);
                             res.body.should.be.an.instanceof(Array);
-
+                            res.body[0].should.not.have.property('password');
                             done();
                         });
                 });
@@ -146,9 +182,10 @@ describe("Employee", function() {
 
                             res.body.should.have.property('_id');
                             res.body.should.have.property('email');
-                            res.body.should.have.property('name');
+                            res.body.should.have.property('first_name');
+                            res.body.should.have.property('last_name');
                             res.body.should.have.property('phone_number');
-
+                            res.body.should.not.have.property('password');
                             res.body.should.be.instanceof(Object);
 
                             res.body._id.should.equal(returnedId);
@@ -165,6 +202,7 @@ describe("Employee", function() {
                         .query({email: credentials.email, token: credentials.token})
                         .end(function(err, res){
                             res.body.should.have.property('_id');
+                            res.body.should.not.have.property('password');
                             done();
                         });
                 });

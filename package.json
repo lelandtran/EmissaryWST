@@ -55,7 +55,8 @@
     "wiredep": "2.2.2",
     "lodash": "4.0.0",
     "iconv-lite": "0.4.13",
-    "newrelic": "1.25.4"
+    "newrelic": "1.25.4",
+    "slack-notify": "0.1.6"
   },
   "devDependencies": {
     "chai": "1.10.0",

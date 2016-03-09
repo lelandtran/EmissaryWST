@@ -15,7 +15,7 @@ function setupAdmin(done) {
 }
 
 function setupUser(done, isEmployee) {
-  var path = isEmployee ? '/employee' : '/api/companies';
+  var path = isEmployee ? '/employees' : '/api/companies';
   var UserModel = isEmployee ? Employee : AdminUser;
 
   var token;

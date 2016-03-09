@@ -13,6 +13,8 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var mongoose = require('mongoose');
 var socketIO = require('./socket/socket');
+var MY_SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
+var slack = require('slack-notify')(MY_SLACK_WEBHOOK_URL);
 //var oauthserver = require('oauth2-server');
 var newrelic = require('newrelic');
 
@@ -76,7 +78,18 @@ require('./routes')(app);
 if(app.get('env') !== 'development') {
   app.use('/api/*', validate);
 }
-
+app.get('/checkin', function(req,res){
+	var message = "Name: " + req.param("first") + " " + req.param("last") + " || Phone Number: "+ req.param("phoneNumber");
+		if(req.param("first") !== undefined)
+		{
+			slack.send({
+ 				channel: '#checkin',
+  				text: message,
+  				username: 'CheckInBot'
+			});
+		}
+	res.sendFile(path.join(__dirname,'../dist/assets/views/checkin.html'))
+});
 /*
  * Error Handler.
  */

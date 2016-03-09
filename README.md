@@ -176,7 +176,9 @@ accounts to manage the companies' accounts
 **Success**
 
 	{
-		id : "12314125",
+		_id : "12314125",
+		first_name : "test",
+        last_name : "test",
 		email : "test@yahoo.com",
 		phone_number : "6581922344",
 		company_id : "123124124",
@@ -193,6 +195,8 @@ accounts to manage the companies' accounts
 
 **required**
 
+    first_name
+    last_name
 	email
 	password
 	phone_number
@@ -210,9 +214,12 @@ accounts to manage the companies' accounts
 **Success**
 
 	{
-		id : "12314125",
+		_id : "12314125",
+		first_name : "test",
+        last_name : "test",
 		email : "test@yahoo.com",
-		phone_number : "6581922344"
+		phone_number : "6581922344",
+		company_id : "123124124",
 		role : "a_admin"
 	}
 **Error**
@@ -228,11 +235,13 @@ accounts to manage the companies' accounts
 **Success**
 	
 	{
-		id : "12314125",
-		email: "test@yahoo.com",
-		phone_number: "6581922344"
-		role: "a_admin",
-		company_id: "12314125"
+		_id : "12314125",
+		first_name : "test",
+        last_name : "test",
+		email : "test@yahoo.com",
+		phone_number : "6581922344",
+		company_id : "123124124",
+		role : "a_admin"
 	}
 	
 **Error**
