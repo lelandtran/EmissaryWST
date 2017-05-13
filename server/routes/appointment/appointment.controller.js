@@ -1,5 +1,17 @@
 'use strict';
 
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
+
+
 /*This module is meant to house the functions
  * used by the authorization (auth) API. The
  * actual API is set up in index.js
