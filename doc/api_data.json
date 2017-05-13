@@ -32,7 +32,7 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "lastname",
+            "field": "middlename",
             "description": "<p>Lastname of the User.</p>"
           }
         ]
