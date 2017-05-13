@@ -6,8 +6,11 @@ before_script:
   - npm install
   - node nightwatch.conf.BASIC.js
   - python -m SimpleHTTPServer &
-  - sleep 2
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("travis", "cse112mao");'
 script: gulp
+services:
+  - mongodb
 addons:
   sauce_connect:
         username: "jonahcruz97"
