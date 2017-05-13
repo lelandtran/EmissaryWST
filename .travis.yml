@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - '6'
+before_script:
+  - npm install -g gulp bower foreman
+  - npm install
+  - node nightwatch.conf.BASIC.js
+  - python -m SimpleHTTPServer &
+  - sleep 2
+script: gulp
+addons:
+  sauce_connect:
+        username: "jonahcruz97"
+        access_key: "cd5b76ab-6615-44b7-a9e2-1628de37e6e3"
+  apt:
+    packages:
+      - oracle-java8-set-default
+deploy:
+  skip-cleanup: true
+  provider: heroku
+  api_key:
+    secure: Zx/KipW1T24oU2oIMdrMu2dBClMAIiSQv7MtLw3ZIgHcAlJMHeUoy7tTnIbdEZurXFCbIKzOJbCZUxOcpj8xbW7e4kNtnOwrQJYySWP4DO3FY8lUWsyA+eOkFqIUgGOmVk4i+WTINs/T8jr6UMoJbE3LNKYJsOue8K8yTqzRGyH13iF3QWCiIuZaR6Mp1BAOl8HvSRx0SteA6HEOCZHSlmkXT9sA9YE7Y2aOKq1Fa6RmfdQyNqZpxIKHWMVNq4qi3bUmTzLSw40UEsFeAjy97dfxOGZ2eY+mqHR2rKBUQBG2Wp/XL1xpi3QM915YEYi1XuECj1JcYro+pPdYEZOjl6bOfqvUqJmRIL+f8QEZ9flB8+K2Epo+GMbdFATKByPKypoQynEL2p1prwhvsNMACdFfpyOqn1VEyvgWPrm1hIP9dDghSpBOIpTCdypaj8mBdh50myTYhYYNGKVS9WUr/YUl1zrCz8FItXuzcx0d0XlyKKH0XdcRmZICNIHqNt96pG3Kb93JjZVCn7eJ5zB2KY7DpJ5x8RdAWQpavbPfdV7d4hhN7Dy4qWYkeKWQYtLFlWz3m1xR2ef2VsPoKwd66AiSB090Y5374WG6G9tFQos9NiwN7fKtACy4hm4poYXghYWGJY7zgv0mVcAin0/4lUJsKJDa8eiBT0B4ohWShtw=
+  app: maoproj
+  on:
+    repo: cse112mao/MAO
+notifications:
+  slack: cse112maospring2017:XksgdUr6VwPdJQ38LUBViS19
