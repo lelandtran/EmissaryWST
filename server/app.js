@@ -131,9 +131,9 @@ app.get('/404', function(req,res){
 app.get('/admin-settings', function(req,res){
   res.sendFile(path.join(__dirname,'../dist/assets/views/admin-settings.html'))
 });
-app.get('/home', function(req,res){
+app.get('/index', function(req,res){
   res.sendFile(path.join(__dirname,'../dist/assets/views/index.html'))
-});
+});   
 /*
  * Error Handler.
  */
