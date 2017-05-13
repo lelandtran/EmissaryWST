@@ -77,6 +77,7 @@ app.set('port', config.port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, '../dist')));
+app.use('/doc', express.static(path.join(__dirname, '../doc')));
 
 app.set('view engine', 'html');
 
