@@ -2,7 +2,7 @@
  * Config var for app
 **/
 module.exports = {
-  mongoDBUrl: mongodb://cse112mao:teammao123@ds137891.mlab.com:37891/maoproj:
+  mongoDBUrl: process.env.MONGODB_URL || process.env.MONGOLAB_URI  || 'mongodb://localhost:27017/webstormtroopers',
   port: process.env.PORT || 4941,
   secret: process.env.SECRET || 'mysecret'
 };
