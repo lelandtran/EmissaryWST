@@ -12,9 +12,9 @@ gulp.task('htmlify', ['copy:views'],function(){
 });
 
 gulp.task('ng-annotate', ['concat:js'], function () {
-  return gulp.src('./dist/bundle.js')
+  return gulp.src('dist/bundle.js')
     .pipe(ngAnnotate())
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 /* Minify bundle.css. If it doesn't exist, create 
@@ -23,14 +23,14 @@ gulp.task('ng-annotate', ['concat:js'], function () {
 gulp.task('minify:css', ['concat:css'], function() {
   return gulp.src('./dist/bundle.css')
     .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('./dist/'))
 });
 
 /* Minify bundle.js */
 gulp.task('minify:js', ['ng-annotate'], function() {
   return gulp.src('./dist/bundle.js')
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
 });
 
 /* Build the app without minification */

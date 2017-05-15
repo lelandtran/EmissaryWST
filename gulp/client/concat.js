@@ -7,8 +7,9 @@ var concat = require('gulp-concat');
  */
 gulp.task('concat:js', function() {
   return gulp.src([
-    './client/**/*.js',
-     '!./client/assets/**/*.js'
+    './client/app/app.module.js',
+    './client/app/**/*.module.js',
+    './client/app/**/*.js'
   ])
   .pipe(concat('bundle.js'))
   .pipe(gulp.dest('./dist/'));

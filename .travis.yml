@@ -6,7 +6,6 @@ before_script:
 - npm install
 - sleep 15
 - mongo mydb_test --eval 'db.addUser("travis", "cse112mao");'
-- gulp build:dev
 script: gulp
 services:
 - mongodb
