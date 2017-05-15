@@ -16,7 +16,6 @@ deploy:
     secure: h59vHc/SOFXcyZm4oKcXHV6XWLnnKaCKDD2GvM49snVkHaFesy/Uo6HQ89ZrlEYsA9I8qmWtus3q//r21VpuST7JBkMOXU496AOp8QjACkNZ2nzOcEEf9nhiPuxUVLU1hPK+Sq15fhg8tXlZuShxakdauVjcCNCCnMf/3R4OOg3en78Y5TeKG7LnjGj6rfTkBozKOmyGvZ/HJUUy5H8zsdoANAyCQ/lI5XPp+FkaZb2PNCZhSupGCQupbhaeprctOBS+0PHfAhLxONlEkveEITvWzzwbniiE76irTBfzlmsBJoOTWyQvgk/18P2DiSG8EmoopYyJhcwQcTPIBn2ZL+V0Kl1ZCO05Ua5/zlrMQeKD8R5i9THNLFkR44N8ETXXK8N8UWuWK7K7kM+UKkDi7Zy3TaiqQ4gqVl1suiQL9RS8d/WyLPuRbTO8bljh3mCBi4XVWjYByifgwauacEUXwViTGueipjVP0NtKEEu+sFXcYl8iL0fhwchaoOe2iBJjpYQrAO7euI31GukFTTEnZCGkNPxMJ7usU0XSJbtSVCe5yZWpmnoTKG661ajZzlJ5xvhq5IfE1G9cW8DXnL5OtV2dGzWG7BvPrv/2BgaImnZ4qHEnm7CZCv4DR2MhgxodMx0Zm+pTUMn8C4pfRl9FsG9ZEKmfthx1OEomqaSHhi0=
   app: 
     master: lucky13
-    develop: temp-13-1
-    travis: temp-13-2
+    develop: lucky13-dev
   on:
     repo: aframr/EmissaryWST
