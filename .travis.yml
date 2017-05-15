@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- '6'
+addons:
+  sauce_connect:
+    username: cse112lucky13
+    access_key: fb844c65-3161-4d0f-a518-121c00d974a4
+before_script:
+- npm install -g gulp
+script: gulp
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: hrRPA3Cdykj0l3dsYn//5T54YzgGGGNAGthEuDAKWOMobbb1cgf7/kR0r7FzYsXM3pqoPCLj5LGGY7x2K9BJkzNdt5S2ltLXpHnd/tzf9oKTGC316opIMN7GkkDEhLJ44BXSnPWFLcn/1Iafuy1ts3nn+NDZgZ4yXcLlnx43RHF9GCDyvcG9DUeL/IKdIOgapD4kpzLfhTSBNixG/aLvIKhPiYrP7hf5qRkomwyy7i1KKDVeywV7xdpE+3jaar5J8tNLHzX42W1vkfqtn/gMmDq0qntYiKuJghAXC2YdG5uA/udQTDxLHIvJ5XvmPbocao4BDH0kS4f5Hk3IaUBUoRYNbHjdyWPV6xj6OKXKkhX8FN4Ae1wwWnSEzQmORWehs8nJEdfYAiZzxD+SHRn5S5BvhylKYIN1kkHeVLQ++ByLuhfNfEw5hrQeIxC53FxvB+TY71+BvXoQbj67rivm2M7t0SV8bxRCH70ImIIBOstqplynT1+01LT/iZMULKsXMtd/QApp7oEz5V095ArmBrzfmVcKxkqHFJ+2/7ozwMGokDaNbY2/WN/kWisapYi2sR8bhuTc//fKOjPZrMozEGzqiYM1d4t98qTxhs1/Ij2FZXMdJTZQrTVG0t7CkGtNk9lkhVQu30whhFpYSQvRl/4mTGlR0zBZozvQfBk2BPk=
+  app:
+    master: lucky13
+    develop: temp-13-1
+    travis: temp-13-2
+  on:
+    repo: aframr/EmissaryWST
+notifications:
+  slack: cse112lucky13:KZO7RAgO53DaVL2ej8rYGIzh
