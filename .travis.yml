@@ -4,6 +4,8 @@ node_js:
 before_script:
 - npm install -g gulp bower foreman
 - npm install
+- node nightwatch.conf.BASIC.js
+- python -m SimpleHTTPServer &
 - sleep 15
 - mongo mydb_test --eval 'db.addUser("travis", "cse112mao");'
 script: gulp
