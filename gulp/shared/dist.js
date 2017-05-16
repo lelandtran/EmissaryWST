@@ -4,8 +4,8 @@ var gulp = require('gulp');
  * That is ready to serve by our backend
  */
 gulp.task('dist', [
- 'lint:server',
- 'lint:client',
+// 'lint:server',
+// 'lint:client',
   'bower',
   'concat:css',
   'concat:js',
