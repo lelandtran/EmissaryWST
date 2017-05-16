@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+/*var gulp = require('gulp'),
     nightwatch = require('gulp-nightwatch');
 
  gulp.task('test:nightwatch', () =>
@@ -7,4 +7,4 @@ var gulp = require('gulp'),
     .once('error', () => {
       process.exit(1);
     })
-);
+);*/

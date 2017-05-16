@@ -1,5 +1,94 @@
 [
   {
+    "type": "delete",
+    "url": "/api/companies:id",
+    "title": "",
+    "name": "DeleteCompany",
+    "group": "Company",
+    "description": "<p>Delete a company's information</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the company to delete</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>unique id of entry</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the company</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the company</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone_number",
+            "description": "<p>phone number of the company</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paid_time",
+            "description": "<p>when the payment was made</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Incorrect parameters</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (success):",
+          "content": "{\n    _id : \"12314125\"\n    name : \"test\",\n    email : \"test\",\n    phone_number : \"0123456789\",\n    paid_time: \"2016-04-23T18:25:43.511Z\",\n}",
+          "type": "json"
+        },
+        {
+          "title": "Response (error):",
+          "content": "{\n    error: \"Incorrect parameters\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/company/company.controller.js",
+    "groupTitle": "Company"
+  },
+  {
     "type": "get",
     "url": "/api/companies",
     "title": "",
@@ -391,7 +480,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "error",
-            "description": "<p>Incorrect credentials</p>"
+            "description": "<p>Incorrect parameters</p>"
           }
         ]
       },

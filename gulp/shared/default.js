@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
 /* The default task */
-gulp.task('default', ['build:dev', 'test:nightwatch', 'apidoc']);
+gulp.task('default', ['build:dev', 'apidoc']);
 
