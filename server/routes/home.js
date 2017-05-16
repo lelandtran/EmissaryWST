@@ -1,17 +1,17 @@
-
+'use strict';
 
 /* This module is strictly meant for one route. This route
  * is responsible for rendering our angular app home page.
  */
-const express = require('express');
-const path = require('path');
-const router = express.Router();
+var express = require('express');
+var path = require('path');
+var router = express.Router();
 
 /**
  * GET /
  * Render out angular app.
  */
-router.get('/', (req, res) => {
+router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../dist/visitors.html'));
 });
 
