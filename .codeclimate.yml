@@ -2,7 +2,7 @@
 engines:
   eslint:
     enabled: true
-  csslint:
+  stylelint:
     enabled: true
 ratings:
   paths:
