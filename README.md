@@ -1,5 +1,7 @@
 #WebstormTroopers
-[ ![Codeship Status for thiefjack/WebStormTroopers](https://codeship.com/projects/e58e08b0-ce3e-0133-961f-32b8bfabf829/status?branch=master)](https://codeship.com/projects/140852) [![Code Climate](https://codeclimate.com/repos/56eb35d946674e0085001b9d/badges/d34d37138e740796e3ef/gpa.svg)](https://codeclimate.com/repos/56eb35d946674e0085001b9d/feed)
+Travis- [![Build Status](https://travis-ci.org/cse112mao/EmissaryWST.svg?branch=master)](https://travis-ci.org/cse112mao/EmissaryWST) 
+
+[![Code Climate](https://codeclimate.com/repos/56eb35d946674e0085001b9d/badges/d34d37138e740796e3ef/gpa.svg)](https://codeclimate.com/repos/56eb35d946674e0085001b9d/feed)
 ##1. Getting Started
 #
 ###1.1 List of Requirements
