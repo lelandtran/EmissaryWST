@@ -2,8 +2,8 @@
 engines:
   eslint:
     enabled: true
-  csslint:
-    enabled: false
+  stylelint:
+    enabled: true
 ratings:
   paths:
   - client/assets/native/**/*.js

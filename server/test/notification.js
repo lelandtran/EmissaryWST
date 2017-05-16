@@ -1,27 +1,28 @@
-const request = require('supertest');
-const config = require('../config/config');
+var request = require('supertest');
+var config = require('../config/config');
 // Wrapper that creates admin user to allow api calls
-const ConfigureAuth = require('./ConfigureAuth');
-const Employee = require('../models/Employee');
+var ConfigureAuth = require('./ConfigureAuth');
+var Employee = require('../models/Employee');
 
 
-const Email = require('../notification/email');
-const TextModel = require('../notification/text');
+var Email = require('../notification/email');
+var TextModel = require('../notification/text');
 
 // SAMPLE : [{phone_number: "XXX-XXX-XXXX", email: "XXXXX@XXXXX.com"}];
-const employees = [];
+var employees = [];
 
-describe('Notification', () => {
-  it('It should send an email', function (done) {
-    this.timeout(9000);
-    Email.sendEmail('Tony Montana', employees, done);
-      // done();
-  });
+describe("Notification", function() {
 
-  it('It should send an text', function (done) {
-    this.timeout(9000);
-    TextModel.sendText('Tony Montana', employees, done);
-      // done();
-  });
-},
+    it('It should send an email', function(done){
+      this.timeout(9000);
+      Email.sendEmail("Tony Montana", employees, done);
+      //done();
+    });
+
+    it('It should send an text', function(done){
+      this.timeout(9000);
+      TextModel.sendText("Tony Montana", employees, done);
+      //done();
+    });
+  }
 );
