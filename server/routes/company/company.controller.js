@@ -23,6 +23,43 @@ var jwt = require('jwt-simple');
 /****** Company TEMPLATE ROUTES ******/
 module.exports.template = {};
 
+/**
+ *  @api {post} /api/companies
+ *  @apiName PostCompany
+ *  @apiGroup Company
+ *  
+ *  @apiDescription Create new company for the website with provided mandatory information
+ *
+ *  @apiParam {String} name name of the company
+ *  @apiParam {String} credit_card_number credit card to sign up the company with
+ *  @apiParam {String} expiration_date credit card's expiration date
+ *  @apiParam {String} email to sign up with
+ *  @apiParam {String} phone_number phone number to sign up with
+ *  @apiParam {String} paid_time when the payment was made
+ *
+ *  @apiSuccess {String} _id unique id of entry
+ *  @apiSuccess {String} name name of the company
+ *  @apiSuccess {String} email email of the company
+ *  @apiSuccess {String} phone_number phone number of the company
+ *  @apiSuccess {String} paid_time when the payment was made
+ *
+ *  @apiError error email was taken
+ *
+ *  @apiErrorExample Response (success):
+ *      {
+ *          _id : "12314125"
+ *          name : "test",
+ *          email : "test",
+ *          phone_number : "0123456789",
+ *          paid_time: "2016-04-23T18:25:43.511Z",
+ *      }
+ *
+ *  @apiErrorExample Response (error):
+ *      {
+ *          error: "email taken"
+ *      }
+ */
+
 /**signup- Used to sign up a user.*/
 module.exports.template.create = function(req, res) {
     var company = new Company();
@@ -47,6 +84,45 @@ module.exports.template.create = function(req, res) {
     });
 };
 
+/**
+ *  @api {get} /api/companies
+ *  @apiName GetAllCompany
+ *  @apiGroup Company
+ *  
+ *  @apiDescription Retrieve information for all companies
+ *
+ *  @apiSuccess {String} _id unique id of entry
+ *  @apiSuccess {String} name name of the company
+ *  @apiSuccess {String} email email of the company
+ *  @apiSuccess {String} phone_number phone number of the company
+ *  @apiSuccess {String} paid_time when the payment was made
+ *
+ *  @apiError error Incorrect credentials
+ *
+ *  @apiErrorExample Response (success):
+ *      {
+ *          {
+ *              _id : "12314125"
+ *              name : "test",
+ *              email : "test",
+ *              phone_number : "0123456789",
+ *              paid_time: "2016-04-23T18:25:43.511Z",
+ *          },
+ *          {
+ *              _id : "12314125"
+ *              name : "test",
+ *              email : "test",
+ *              phone_number : "0123456789",
+ *              paid_time: "2016-04-23T18:25:43.511Z",
+ *          }
+ *      }
+ *
+ *  @apiErrorExample Response (error):
+ *      {
+ *          error: "Incorrect credentials"
+ *      }
+ */
+
 /**get All the companies*/
 module.exports.template.getAll = function(req, res) {
     Company.find({},
@@ -62,6 +138,38 @@ module.exports.template.getAll = function(req, res) {
     });
 };
 
+/**
+ *  @api {get} /api/companies/:id
+ *  @apiName GetCompany
+ *  @apiGroup Company
+ *  
+ *  @apiDescription Retrieve information about a company
+ *
+ *  @apiParam {String} id id of the company to search for
+ *
+ *  @apiSuccess {String} _id unique id of entry
+ *  @apiSuccess {String} name name of the company
+ *  @apiSuccess {String} email email of the company
+ *  @apiSuccess {String} phone_number phone number of the company
+ *  @apiSuccess {String} paid_time when the payment was made
+ *
+ *  @apiError error Incorrect credentials
+ *
+ *  @apiErrorExample Response (success):
+ *      {
+ *          _id : "12314125"
+ *          name : "test",
+ *          email : "test",
+ *          phone_number : "0123456789",
+ *          paid_time: "2016-04-23T18:25:43.511Z",
+ *      }
+ *
+ *  @apiErrorExample Response (error):
+ *      {
+ *          error: "Incorrect credentials"
+ *      }
+ */
+
 /**authLogin- logs in a user*/
 module.exports.template.get = function(req, res) {
     Company.findOne({_id: req.params.id}, function(err, company) {
@@ -70,6 +178,43 @@ module.exports.template.get = function(req, res) {
         return res.status(200).json(showCompanyPublicInfo(company));
     });
 };
+
+/**
+ *  @api {put} /api/companies:id
+ *  @apiName PutCompany
+ *  @apiGroup Company
+ *  
+ *  @apiDescription Update a company's information
+ *
+ *  @apiParam {String} id id of the company to update
+ *  @apiParam {String} [name] name of the company
+ *  @apiParam {String} [credit_card_number] credit card to sign up the company with
+ *  @apiParam {String} [expiration_date] credit card's expiration date
+ *  @apiParam {String} [email] to sign up with
+ *  @apiParam {String} [phone_number] phone number to sign up with
+ *
+ *  @apiSuccess {String} _id unique id of entry
+ *  @apiSuccess {String} name name of the company
+ *  @apiSuccess {String} email email of the company
+ *  @apiSuccess {String} phone_number phone number of the company
+ *  @apiSuccess {String} paid_time when the payment was made
+ *
+ *  @apiError error Incorrect parameters
+ *
+ *  @apiErrorExample Response (success):
+ *      {
+ *          _id : "12314125"
+ *          name : "test",
+ *          email : "test",
+ *          phone_number : "0123456789",
+ *          paid_time: "2016-04-23T18:25:43.511Z",
+ *      }
+ *
+ *  @apiErrorExample Response (error):
+ *      {
+ *          error: "Incorrect parameters"
+ *      }
+ */
 
 /* update the company info */
 module.exports.template.update = function(req, res){
@@ -97,6 +242,38 @@ module.exports.template.update = function(req, res){
         });
     });
 };
+
+/**
+ *  @api {delete} /api/companies:id
+ *  @apiName DeleteCompany
+ *  @apiGroup Company
+ *  
+ *  @apiDescription Delete a company's information
+ *
+ *  @apiParam {String} id id of the company to delete
+ *
+ *  @apiSuccess {String} _id unique id of entry
+ *  @apiSuccess {String} name name of the company
+ *  @apiSuccess {String} email email of the company
+ *  @apiSuccess {String} phone_number phone number of the company
+ *  @apiSuccess {String} paid_time when the payment was made
+ *
+ *  @apiError error Incorrect parameters
+ *
+ *  @apiErrorExample Response (success):
+ *      {
+ *          _id : "12314125"
+ *          name : "test",
+ *          email : "test",
+ *          phone_number : "0123456789",
+ *          paid_time: "2016-04-23T18:25:43.511Z",
+ *      }
+ *
+ *  @apiErrorExample Response (error):
+ *      {
+ *          error: "Incorrect parameters"
+ *      }
+ */
 
 /* delete company */
 module.exports.template.delete = function(req, res){
