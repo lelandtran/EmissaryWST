@@ -19,3 +19,5 @@ mobile/www/*
 *.iml
 bin/
 selenium-server-standalone-3.4.0.jar
+apidoc/
+docs/
