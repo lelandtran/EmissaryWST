@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+- '6'
+before_script:
+- npm install -g gulp bower foreman
+- npm install
+- node nightwatch.conf.BASIC.js
+- python -m SimpleHTTPServer &
+- sleep 15
+- mongo mydb_test --eval 'db.addUser("travis", "cse112mao");'
+script: gulp
+services:
+- mongodb
+addons:
+  sauce_connect:
+    username: MAO
+    access_key: dc201543-557e-41e2-97b3-9a7cdd6bb305
+  apt:
+    packages:
+    - oracle-java8-set-default
+deploy:
+  skip-cleanup: true
+  provider: heroku
+  api_key:
+    secure: o/8JDWnzjb3KsA8UGuA+nl+vIzt2pXrj86FdxPOE06ib6GxdxcSEa6C1R7XPK5bQa6S5lYt+jxPWpRSlPuro6WgXJsxcCIktVPa2wc3b4mMiq+3itKOAtct0Gvyoc1TUXUKW8Qd0j8fWA0srlZt8rU33CLO6wKwfgRh0X4CBRVrERLafzap591rR6f+WQjNGjd63uW2UAY9faJgZ0FmHLgFzP7VNAUuaUIwGdFIjN0ViQfPYiXFPdv391NHURhXy3p7g+7NQ72oXwIMwDPgFiPH4Nt3IXwC25REDQ1FcQiP3LOBx+H53LLq0JSlHdXNHYvILchZqENRwk2wN8vYRqPSTsXX2IL84iicmGEu8Mdzp/eaIjtHv+w6p+YPBMGBZSEWN1Kp1UYEyJUSHGLy2wUyW2LRa2vETuopY8MAnCbUxVrPiXvnHKisgRtYZwUnr55FteWrnjNQEM8zaZFMy37SduNVoOMvkehpWmWL3n/R+bjqRjkzkt4dU/95ybTUjtvKoH7a7HhpFDUUNp+Pdv+88qkILOktnPFzLzlQcOWxZwrxlCBRCCsD18KSEYx4JSMx3xLOCGQmLLNWka4/iKUJqoO3nCyL/Piae26JmflodkpufgorNTNpx5HxU4i+4rr2JKPClPItK4hiKMxiM8Q3UoKHYh2mtf82e4KY5eTo=
+  app: emissaryws
+  on:
+    repo: cse112mao/EmissaryWST
+notifications:
+  slack: cse112maospring2017:XksgdUr6VwPdJQ38LUBViS19

@@ -75,8 +75,10 @@ db.once('open', function callback () {
 app.set('port', config.port);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, '../dist')));
+app.use('/doc', express.static(path.join(__dirname, '../doc')));
+
 app.set('view engine', 'html');
 
 app.use(cors());
@@ -133,7 +135,11 @@ app.get('/admin-settings', function(req,res){
 });
 app.get('/index', function(req,res){
   res.sendFile(path.join(__dirname,'../dist/assets/views/index.html'))
-});   
+});
+app.get('/doc', function(req,res){
+  res.sendFile(path.join(__dirname,'../doc/index.html'))
+});
+ 
 /*
  * Error Handler.
  */
