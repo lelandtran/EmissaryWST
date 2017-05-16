@@ -17,5 +17,6 @@ deploy:
   app: 
     master: lucky13
     develop: lucky13-dev
+    test: temp-13-1
   on:
     repo: aframr/EmissaryWST
