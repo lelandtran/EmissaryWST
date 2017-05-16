@@ -17,3 +17,6 @@ mobile/www/*
 !mobile/README
 *.swp
 *.iml
+
+apidoc/
+docs/
