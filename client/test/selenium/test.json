@@ -5,7 +5,7 @@
   "steps": [
     {
       "type": "get",
-      "url": "http://webstormtroopers.herokuapp.com/index.html"
+      "url": "http://maoproj.herokuapp.com/index.html"
     },
     {
       "type": "clickElement",
