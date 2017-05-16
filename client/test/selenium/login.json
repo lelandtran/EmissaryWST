@@ -5,7 +5,7 @@
   "steps": [
     {
       "type": "get",
-      "url": "http://webstormtroopers.herokuapp.com/login.html"
+      "url": "http://maoproj.herokuapp.com/login.html"
     },
     {
       "type": "verifyElementPresent",

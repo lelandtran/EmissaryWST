@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    nightwatch = require('gulp-nightwatch')
+    nightwatch = require('gulp-nightwatch');
 
  gulp.task('test:nightwatch', () =>
   gulp.src('test/*.js', {read: false})
