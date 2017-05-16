@@ -6,6 +6,7 @@ var gulp = require('gulp');
 gulp.task('dist', [
 // 'lint:server',
 // 'lint:client', uncomment this when ready to turn linting on
+  'apidoc',
   'bower',
   'concat:css',
   'concat:js',
@@ -14,6 +15,5 @@ gulp.task('dist', [
   'copy:views',
   'copy:css',
   'copy:js',
-  'copy:images',
-  'apidoc'
+  'copy:images'
 ]);
