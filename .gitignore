@@ -20,3 +20,5 @@ mobile/www/*
 
 apidoc/
 docs/
+bin/
+selenium-server-standalone-3.4.0.jar
