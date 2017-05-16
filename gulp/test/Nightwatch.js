@@ -4,9 +4,6 @@ var gulp = require('gulp'),
  gulp.task('test:nightwatch', function(){
   return gulp.src('test/*.js', {read: false})
     .pipe(nightwatch({configFile: 'nightwatch.conf.BASIC.js'}))
-    .once('error', () => {
-      process.exit(1)
-    })
     .pipe(exit());
 });
 
