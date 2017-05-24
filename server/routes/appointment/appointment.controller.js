@@ -20,6 +20,42 @@ var Appointment = require('../../models/Appointment');
 /****** Company TEMPLATE ROUTES ******/
 module.exports.template = {};
 
+/**
+ * @api {post} /api/appointments Create an appointment for the visitor
+ * @apiName create
+ * @apiGroup appointments
+ *
+ * @apiParam {String} first_name Visitor's first name
+ * @apiParam {String} last_name Visitor's last name
+ * @apiParam {String} phone_number Visitor's phone number
+ * @apiParam {String} date Visitor's visit date
+ * @apiParam {String} company_id Visitor's company id
+ * @apiParam {String} provider_name Visitor's provider name
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} first_name Visitor's first name
+ * @apiSuccess {String} last_name Visitor's last name
+ * @apiSuccess {String} phone_number Visitor's phone number
+ * @apiSuccess {String} date Visitor's visit date
+ * @apiSuccess {String} company_id Visitor's company id
+ * @apiSuccess {String} provider_name Visitor's provider name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *    _id : "12314125",
+ *    first_name : "test",
+ *    last_name : "test",
+ *    phone_number : "0123456789",
+ *    date : "2016-04-23T18:25:43.511Z",
+ *    company_id : "12314125",
+ *    provider_name : "test test"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Already created"
+ *   }
+ */
 module.exports.template.create = function(req, res) {
     var appointment = new Appointment();
     var param = req.body;
