@@ -9,7 +9,6 @@ gulp.task('lint:client', function() {
     .pipe(jshint.reporter('fail'));
 });
 
-
 /* This will validate the html files
  */
 gulp.task('lint:html', ['htmlify'],function(){

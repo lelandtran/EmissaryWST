@@ -1,8 +1,11 @@
-# WebstormTroopers
-[ ![Codeship Status for thiefjack/WebStormTroopers](https://codeship.com/projects/e58e08b0-ce3e-0133-961f-32b8bfabf829/status?branch=master)](https://codeship.com/projects/140852) 
+# Team 1 Emissary
 
-## 0. Currently deployed on: 
-http://webstormtroopers.herokuapp.com
+### Currently deployed on: 
+https://team1-emissary.herokuapp.com/
+
+### Staging site here:
+https://cse112-1-staging.herokuapp.com/
+
 ## 1. Getting Started
 **Emissary is a visitor check-in SaaS application targetted for small businesses.**
 - Sign up your company and your own personal account for your company. 
@@ -21,12 +24,14 @@ http://webstormtroopers.herokuapp.com
 4. **jQuery** (https://jquery.com/)
 
 ### 1.2 Instructions
-**Step 1:** Do a `git clone` on our project on **Github** (https://github.com/thiefjack/WebStormTroopers/).
+**Step 1:** Do a `git clone` on our project on **Github** (https://github.com/AnthonyAltieri/EmissaryWST/).
 
 **Step 2:** Run `npm install` in the directory of the project to install the dependency for the backend.
 
 **Step 3:** Run `gulp test:server` to test the backend API.
 
-**Step 4:** Run `gulp test:client` to test the frontend dependecies.
+**Prestep 4:** Run `gulp test:client-setup` to setup local e2e testing (ONLY DO THIS ONCE).
+
+**Step 4:** Run `gulp test:client` to run e2e tests.
 
 **Step 5:** Run `npm start` to start the application.

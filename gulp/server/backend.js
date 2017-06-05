@@ -10,9 +10,9 @@ var gulp = require('gulp');
  */
 gulp.task('serve:backend', function() {
   return nodemon({
-    script: 'server/app.js',
-    watch: ['server/**/*.js'],
-    ignore: ['server/test/**/*.js']
+    script: 'backend/app.js',
+    watch: ['backend/**/*.js'],
+    ignore: ['backend/test/**/*.js']
   })
   .on('restart', function() {
     console.log('Server restarting. Please wait.');

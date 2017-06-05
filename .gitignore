@@ -1,6 +1,5 @@
 node_modules/
 bower_components
-dist/
 log/
 npm-debug.log
 .env
@@ -8,12 +7,7 @@ npm-debug.log
 .DS_Store
 server/log
 newrelic_agent.log
-
-mobile/platforms/
-mobile/plugins/
-mobile/www/*
-!mobile/www/ionic/
-!mobile/resources/
-!mobile/README
+**/dist/
 *.swp
 *.iml
+ml/No-show-Issue-Comma-300k.csv
