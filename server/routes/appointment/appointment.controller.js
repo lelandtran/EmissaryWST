@@ -86,6 +86,42 @@ module.exports.template.create = function(req, res) {
         });
 };
 
+/**
+ * @api {post} /api/appointments Create an appointment for the visitor
+ * @apiName create
+ * @apiGroup appointments
+ *
+ * @apiParam {String} first_name Visitor's first name
+ * @apiParam {String} last_name Visitor's last name
+ * @apiParam {String} phone_number Visitor's phone number
+ * @apiParam {String} date Visitor's visit date
+ * @apiParam {String} company_id Visitor's company id
+ * @apiParam {String} provider_name Visitor's provider name
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} first_name Visitor's first name
+ * @apiSuccess {String} last_name Visitor's last name
+ * @apiSuccess {String} phone_number Visitor's phone number
+ * @apiSuccess {String} date Visitor's visit date
+ * @apiSuccess {String} company_id Visitor's company id
+ * @apiSuccess {String} provider_name Visitor's provider name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *    _id : "12314125",
+ *    first_name : "test",
+ *    last_name : "test",
+ *    phone_number : "0123456789",
+ *    date : "2016-04-23T18:25:43.511Z",
+ *    company_id : "12314125",
+ *    provider_name : "test test"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Already created"
+ *   }
+ */
 module.exports.template.getAll = function(req, res) {
     Appointment.find({company_id: req.params.id}, function(err, result){
             if(err){
@@ -95,6 +131,35 @@ module.exports.template.getAll = function(req, res) {
         });
 };
 
+/**
+ * @api {get} /api/appointments/:id Gets an appointment
+ * @apiName get
+ * @apiGroup appointments
+ *
+ * @apiSuccess {String} _id Appointment ID
+ * @apiSuccess {String} first_name Visitor's first name
+ * @apiSuccess {String} last_name Visitor's last name
+ * @apiSuccess {String} phone_number Visitor's phone number
+ * @apiSuccess {String} date Visitor's visit date
+ * @apiSuccess {String} company_id Visitor's company id
+ * @apiSuccess {String} provider_name Visitor's provider name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ * 	  _id : "12314125",
+ *    first_name : "test",
+ *    last_name : "test",,
+ *    phone_number : "0123456789",
+ *    date : "2016-04-23T18:25:43.511Z",
+ *    company_id : "12314125",
+ *    provider_name : "test test"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Can't find"
+ *   }
+ */
 module.exports.template.get = function(req, res) {
     Appointment.findOne({_id: req.params.id}, function(err, a) {
         if(err || !a)
@@ -103,6 +168,35 @@ module.exports.template.get = function(req, res) {
     });
 };
 
+/**
+ * @api {put} /api/appointments/:id Updates an appointment
+ * @apiName update
+ * @apiGroup appointments
+ *
+ * @apiSuccess {String} _id Appointment ID
+ * @apiSuccess {String} first_name Visitor's first name
+ * @apiSuccess {String} last_name Visitor's last name
+ * @apiSuccess {String} phone_number Visitor's phone number
+ * @apiSuccess {String} date Visitor's visit date
+ * @apiSuccess {String} company_id Visitor's company id
+ * @apiSuccess {String} provider_name Visitor's provider name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ * 	  _id : "12314125",
+ *    first_name : "test",
+ *    last_name : "test",,
+ *    phone_number : "0123456789",
+ *    date : "2016-04-23T18:25:43.511Z",
+ *    company_id : "12314125",
+ *    provider_name : "test test"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Already created"
+ *   }
+ */
 module.exports.template.update = function(req, res){
     Appointment.findOne({_id: req.params.id}, function (err, a) {
         if(err || !a)
@@ -131,6 +225,37 @@ module.exports.template.update = function(req, res){
     });
 };
 
+/**
+ * @api {delete} /api/appointments/:id Updates an appointment
+ * @apiName update
+ * @apiGroup appointments
+ *
+ * @apiSuccess {String} _id Appointment ID
+ * @apiSuccess {String} first_name Visitor's first name
+ * @apiSuccess {String} last_name Visitor's last name
+ * @apiSuccess {String} phone_number Visitor's phone number
+ * @apiSuccess {String} old_date Visitor's old appointment date
+ * @apiSuccess {String} new_date Visitor's new appointment date
+ * @apiSuccess {String} company_id Visitor's company id
+ * @apiSuccess {String} provider_name Visitor's provider name
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ * 	  _id : "12314125",
+ *    first_name : "test",
+ *    last_name : "test",,
+ *    phone_number : "0123456789",
+ *    old_date : "2016-04-23T18:25:43.511Z",
+ *    new_date : "2016-04-23T18:25:43.511Z",
+ *    company_id : "12314125",
+ *    provider_name : "test test"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Already created"
+ *   }
+ */
 module.exports.template.delete = function(req, res){
     Appointment.findById(req.params.id, function(err, a) {
         if(err)

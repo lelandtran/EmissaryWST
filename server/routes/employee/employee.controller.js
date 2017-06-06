@@ -8,6 +8,39 @@ var exports = module.exports;
 
 var Employee = require('../../models/Employee');
 
+
+/**
+ * @api {post} /api/employees/login Employee Login
+ * @apiName login
+ * @apiGroup employees
+ *
+ * @apiParam {String} email Employee's email
+ * @apiParam {String} password Employee's password
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} first_name User's first name
+ * @apiSuccess {String} last_name User's last name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  	_id : "12314125",
+ *  	first_name : "test",
+ *      last_name : "test",
+ *  	email : "test@yahoo.com",
+ *  	phone_number : "6581922344",
+ *  	company_id : "123124124",
+ *  	role : "a_admin"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "Incorrect Credentials"
+ *   }
+ */
 exports.login = function(req, res) {
     Employee.findOne({email:req.body.email}, function(err, e) {
         if(err || !e){
@@ -21,6 +54,41 @@ exports.login = function(req, res) {
     });
 };
 
+
+/**
+ * @api {get} /api/employees/company/:id Gets all employees
+ * @apiName getAllEmployees
+ * @apiGroup employees
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *{
+ * 	{
+ * 		id : "12314125",
+ * 		email: "test@yahoo.com",
+ * 		phone_number: "6581922344"
+ * 		role: "a_admin",
+ * 		company_id: "12314125"
+ * 	},
+ * 	{
+ * 		id : "12314125",
+ * 		email: "test@yahoo.com",
+ * 		phone_number: "6581922344"
+ * 		role: "a_admin",
+ * 		company_id: "12314125"
+ * 	}
+ *}
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "Incorrect Credentials"
+ *   }
+ */
 exports.getAllEmployees = function(req, res) {
   Employee.find({company_id : req.params.id}, { password: 0}, function(err, result) {
     if(err){
@@ -30,6 +98,37 @@ exports.getAllEmployees = function(req, res) {
   });
 };
 
+/**
+ * @api {get} /api/employees/:id Get Employee
+ * @apiName get
+ * @apiGroup employees
+ *
+ * @apiParam {String} id Employee ID
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} first_name User's first name
+ * @apiSuccess {String} last_name User's last name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  	_id : "12314125",
+ *  	first_name : "test",
+ *      last_name : "test",
+ *  	email : "test@yahoo.com",
+ *  	phone_number : "6581922344",
+ *  	company_id : "123124124",
+ *  	role : "a_admin"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "Incorrect Credentials"
+ *   }
+ */
 exports.getById = function(req, res) {
    Employee.findById(req.params.id, { password: 0}, function(err, employee) {
       if(err) {
@@ -41,6 +140,43 @@ exports.getById = function(req, res) {
     });
 };
 
+/**
+ * @api {post} /api/employees Creates employee
+ * @apiName create
+ * @apiGroup employees
+ *
+ * @apiParam {String} first_name User's first name
+ * @apiParam {String} last_name User's last name
+ * @apiParam {String} email User's email
+ * @apiParam {String} password Employee's password
+ * @apiParam {String} phone_number User's phone number
+ * @apiParam {String} company_id Company ID
+ * @apiParam {String} role User's role
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} first_name User's first name
+ * @apiSuccess {String} last_name User's last name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  	_id : "12314125",
+ *  	first_name : "test",
+ *      last_name : "test",
+ *  	email : "test@yahoo.com",
+ *  	phone_number : "6581922344",
+ *  	company_id : "123124124",
+ *  	role : "a_admin"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "email taken"
+ *   }
+ */
 exports.insert = function(req, res) {
     var employee = new Employee();
 
@@ -64,6 +200,38 @@ exports.insert = function(req, res) {
 };
 
 
+/**
+ * @api {put} /api/employees Updates employee
+ * @apiName update
+ * @apiGroup employees
+ *
+ * @apiParam {String} first_name User's first name
+ * @apiParam {String} last_name User's last name
+ * @apiParam {String} email User's email
+ * @apiParam {String} password Employee's password
+ * @apiParam {String} phone_number User's phone number
+ * @apiParam {String} role User's role
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  	_id : "12314125",
+ *  	email : "test@yahoo.com",
+ *  	phone_number : "6581922344",
+ *  	company_id : "123124124",
+ *  	role : "a_admin"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "Incorrect Credentials"
+ *   }
+ */
 exports.update = function(req, res) {
     Employee.findById(req.params.id, function (err, employee) {
         if(err)
@@ -88,6 +256,33 @@ exports.update = function(req, res) {
    });
 };
 
+/**
+ * @api {delete} /api/employees Deletes employee
+ * @apiName delete
+ * @apiGroup employees
+ *
+ * @apiParam {String} id Employee's id
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} company_id Company ID
+ * @apiSuccess {String} role User's role
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ *  	_id : "12314125",
+ *  	email : "test@yahoo.com",
+ *  	phone_number : "6581922344",
+ *  	company_id : "123124124",
+ *  	role : "a_admin"
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "Incorrect Credentials"
+ *   }
+ */
 exports.delete = function(req, res) {
   Employee.findById(req.params.id, function(err, employee) {
     return employee.remove(function(err) {

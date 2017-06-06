@@ -75,7 +75,40 @@ module.exports.template.create = function(req, res) {
     });
 };
 
-/**get All the companies*/
+/**
+ * @api {get} /api/companies Gets all the companies
+ * @apiName getAll
+ * @apiGroup company
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} name User's full name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} paid_time Time user paid
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * {
+ * 	{
+ * 		_id : "12314125",
+ * 		name : "test",
+ * 		email : "test",
+ * 		phone_number : "0123456789",
+ * 		paid_time: "2016-04-23T18:25:43.511Z"
+ * 	},
+ * 	{
+ * 		_id : "123112325",
+ * 		name : "test",
+ * 		email : "test",
+ * 		phone_number : "0123456789",
+ * 		paid_time: "2016-04-23T18:25:43.511Z"
+ * 	}
+ * }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     err: "Incorrect Credentials"
+ *   }
+ */
 module.exports.template.getAll = function(req, res) {
     Company.find({},
         {
@@ -99,7 +132,31 @@ module.exports.template.get = function(req, res) {
     });
 };
 
-/* update the company info */
+/**
+ * @api {put} /api/companies/:id Update company information
+ * @apiName update
+ * @apiGroup company
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} name User's full name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} paid_time Time user paid
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   {
+ *     _id : "12314125",
+ *     name : "test",
+ *     email : "test",
+ *     phone_number : "0123456789",
+ *     paid_time: "2016-04-23T18:25:43.511Z"
+ *   }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "incorrect parameters"
+ *   }
+ */
 module.exports.template.update = function(req, res){
     Company.findOne({_id: req.params.id}, function (err, c) {
         if(err || !c)
@@ -126,7 +183,31 @@ module.exports.template.update = function(req, res){
     });
 };
 
-/* delete company */
+/**
+ * @api {delete} /api/companies/:id Delete company
+ * @apiName delete
+ * @apiGroup company
+ *
+ * @apiSuccess {String} _id User ID
+ * @apiSuccess {String} name User's full name
+ * @apiSuccess {String} email User's email
+ * @apiSuccess {String} phone_number User's phone number
+ * @apiSuccess {String} paid_time Time user paid
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   {
+ *     _id : "12314125",
+ *     name : "test",
+ *     email : "test",
+ *     phone_number : "0123456789",
+ *     paid_time: "2016-04-23T18:25:43.511Z"
+ *   }
+ *
+ * @apiErrorExample {json} Error-Response:
+ *   {
+ *     error: "incorrect parameters"
+ *   }
+ */
 module.exports.template.delete = function(req, res){
     Company.findById(req.params.id, function(err, c) {
         if(err)
