@@ -2,7 +2,7 @@ var gulp = require('gulp');
 
 
 gulp.task('copy:assets', function () {
-  return gulp.src('./client/assets/**')
+  return gulp.src(['./client/assets/**', '!./client/assets/native/js/*.js'])
     .pipe(gulp.dest('./dist/assets'));
 });
 

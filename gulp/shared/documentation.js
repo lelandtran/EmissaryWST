@@ -1,4 +1,4 @@
-const gulp = require('gulp'),
+var gulp = require('gulp'),
     apidoc = require('gulp-apidoc'),
     jsdoc = require('gulp-jsdoc3');
 
