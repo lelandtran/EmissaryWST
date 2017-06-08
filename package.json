@@ -9,7 +9,7 @@
   "author": "Eduardo Aguilar",
   "scripts": {
     "postinstall": "bower install && gulp build:prod",
-    "start": "node server/app.js",
+    "start": "node --harmony server/app.js",
     "test": "mocha && gulp test:server && gulp test:client"
   },
   "dependencies": {

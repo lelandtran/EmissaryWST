@@ -144,7 +144,7 @@ $(document).ready(() => {
   function jsDate(date, time) {
     const jsDate = reFormatDate(date);
     const jsTime = reFormatTime(time);
-    jsDateObj = `${jsDate} ${jsTime}`;
+    const jsDateObj = `${jsDate} ${jsTime}`;
     return jsDateObj;
   }
 
