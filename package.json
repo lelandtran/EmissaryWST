@@ -9,7 +9,7 @@
   "author": "Eduardo Aguilar",
   "scripts": {
     "postinstall": "bower install && gulp build:prod",
-    "start": "node --harmony --use-strict --harmony_generators server/app.js",
+    "start": "node server/app.js",
     "test": "mocha && gulp test:server && gulp test:client"
   },
   "dependencies": {
@@ -28,7 +28,6 @@
     "express-session": "1.10.1",
     "gulp": "3.9.1",
     "gulp-angular-htmlify": "2.1.1",
-    "gulp-apidoc": "^0.2.6",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "2.4.3",
     "gulp-connect": "2.2.0",
@@ -80,5 +79,8 @@
     "nodemon": "1.3.7",
     "socket.io-client": "1.4.5",
     "supertest": "0.15.0"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
