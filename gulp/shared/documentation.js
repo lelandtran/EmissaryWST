@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
-    apidoc = require('gulp-apidoc'),
     jsdoc = require('gulp-jsdoc3');
+    //apidoc = require('gulp-apidoc'),
 
 // JS Documentation
 gulp.task('jsdoc', function (cb) {
@@ -9,9 +9,9 @@ gulp.task('jsdoc', function (cb) {
 });
 
 // API Documentation
-gulp.task('apidoc', function(done) {
-    apidoc({
-        src: "./server/routes/",
-        dest: "apidoc/"
-    }, done);
-});
+//gulp.task('apidoc', function(done) {
+//    apidoc({
+//        src: "./server/routes/",
+//        dest: "apidoc/"
+//    }, done);
+//});
