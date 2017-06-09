@@ -28,6 +28,7 @@
     "express-session": "1.10.1",
     "gulp": "3.9.1",
     "gulp-angular-htmlify": "2.1.1",
+    "gulp-apidoc": "^0.2.6",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "2.4.3",
     "gulp-connect": "2.2.0",
@@ -81,6 +82,7 @@
     "supertest": "0.15.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.10.x",
+    "gulp-apidoc": "6.10.x"
   }
 }
