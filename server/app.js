@@ -89,6 +89,9 @@ if(app.get('env') !== 'development') {
   app.use('/api/*', validate);
 }
 
+// documentation
+app.use('/apidoc', express.static(path.join(__dirname, '../apidoc')));
+
 app.get('/settings', function(req,res){
   res.sendFile(path.join(__dirname,'../dist/assets/views/settings.html'))
 });
@@ -152,5 +155,8 @@ server.listen(app.get('port'), function() {
  * Create Socket.io server.
  */
 var server = socketIO.createServer(io);
+
+
+
 
 module.exports = app;

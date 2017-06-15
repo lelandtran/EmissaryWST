@@ -17,3 +17,8 @@ mobile/www/*
 !mobile/README
 *.swp
 *.iml
+
+docs/
+bin/
+selenium-server-standalone-3.4.0.jar
+docs/

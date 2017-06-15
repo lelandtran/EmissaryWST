@@ -1,0 +1,20 @@
+---
+engines:
+  eslint:
+    enabled: true
+  stylelint:
+    enabled: true
+ratings:
+  paths:
+  - client/assets/native/**/*.js
+  - client/src/**/*.js
+  - server/**/*.js
+  - routes/**/*.js
+  - client/assets/native/**/*.css
+  - client/src/**/*.css
+  - server/**/*.css
+  - routes/**/*.css
+exclude_paths:
+- dist/**/*
+- node_modules/**/*
+- client/bower_components/**/*
